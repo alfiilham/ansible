@@ -19,7 +19,7 @@
 # complexity = low
 # disruption = low
 - name: Set Account Expiration Following Inactivity
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_account_disable_post_pw_expiration: '30'
@@ -85,7 +85,7 @@
 # complexity = low
 # disruption = low
 - name: Set Password Maximum Age
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_accounts_maximum_age_login_defs: '365'
@@ -151,7 +151,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure PAM Enforces Password Requirements - Prevent the Use of Dictionary Words
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_password_pam_dictcheck: '1'
@@ -214,7 +214,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure PAM Enforces Password Requirements - Minimum Different Characters
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_password_pam_difok: '2'
@@ -278,7 +278,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure PAM Enforces Password Requirements - Enforce for root User
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-83377-2
@@ -339,7 +339,7 @@
 # complexity = low
 # disruption = low
 - name: Set Password Maximum Consecutive Repeating Characters
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_password_pam_maxrepeat: '3'
@@ -401,7 +401,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure PAM Enforces Password Requirements - Minimum Different Categories
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_password_pam_minclass: '4'
@@ -464,7 +464,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure PAM Enforces Password Requirements - Minimum Length
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_password_pam_minlen: '14'
@@ -530,7 +530,7 @@
 # complexity = low
 # disruption = medium
 - name: 'Limit Password Reuse: password-auth'
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_password_pam_remember: '24'
@@ -1220,7 +1220,7 @@
 # complexity = low
 # disruption = medium
 - name: 'Limit Password Reuse: system-auth'
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_password_pam_remember: '24'
@@ -1910,7 +1910,7 @@
 # complexity = low
 # disruption = low
 - name: Set Existing Passwords Maximum Age
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_accounts_maximum_age_login_defs: '365'
@@ -1973,7 +1973,7 @@
 # complexity = low
 # disruption = low
 - name: Lock Accounts After Failed Password Attempts
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_accounts_passwords_pam_faillock_deny: '5'
@@ -2518,7 +2518,7 @@
 # complexity = low
 # disruption = low
 - name: Set Lockout Time for Failed Password Attempts
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_accounts_passwords_pam_faillock_unlock_time: '900'
@@ -3064,7 +3064,7 @@
 # complexity = low
 # disruption = low
 - name: Set Interactive Session Timeout
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_accounts_tmout: '900'
@@ -3133,7 +3133,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure the Default Bash Umask is Set Correctly
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_accounts_user_umask: '027'
@@ -3214,7 +3214,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure the Default Umask is Set Correctly in login.defs
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_accounts_user_umask: '027'
@@ -3295,7 +3295,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure the Default Umask is Set Correctly in /etc/profile
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_accounts_user_umask: '027'
@@ -3378,7 +3378,7 @@
 # complexity = low
 # disruption = low
 - name: Build and Test AIDE Database
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80675-2
@@ -3457,7 +3457,7 @@
 # complexity = low
 # disruption = low
 - name: Configure AIDE to Verify the Audit Tools
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-85964-5
@@ -3540,7 +3540,7 @@
 # complexity = low
 # disruption = low
 - name: Configure Periodic Execution of AIDE
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80676-0
@@ -3629,7 +3629,7 @@
 # complexity = low
 # disruption = medium
 - name: Modify the System Login Banner
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     login_banner_text: ^(Authorized[\s\n]+uses[\s\n]+only\.[\s\n]+All[\s\n]+activity[\s\n]+may[\s\n]+be[\s\n]+monitored[\s\n]+and[\s\n]+reported\.|^(?!.*(\\|fedora|rhel|sle|ubuntu)).*)$
@@ -3686,7 +3686,7 @@
 # complexity = low
 # disruption = medium
 - name: Modify the System Login Banner for Remote Connections
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     remote_login_banner_text: ^(Authorized[\s\n]+uses[\s\n]+only\.[\s\n]+All[\s\n]+activity[\s\n]+may[\s\n]+be[\s\n]+monitored[\s\n]+and[\s\n]+reported\.|^(?!.*(\\|fedora|rhel|sle|ubuntu)).*)$
@@ -3739,7 +3739,7 @@
 # complexity = low
 # disruption = low
 - name: Disable core dump backtraces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-82251-0
@@ -3822,7 +3822,7 @@
 # complexity = low
 # disruption = low
 - name: Disable storing core dump
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-82252-8
@@ -3905,7 +3905,7 @@
 # complexity = low
 # disruption = medium
 - name: Enable GNOME3 Login Warning Banner
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80768-5
@@ -3981,7 +3981,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable GNOME3 Automounting
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-89904-7
@@ -4063,7 +4063,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable GNOME3 Automount Opening
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-83693-2
@@ -4145,7 +4145,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable GNOME3 Automount running
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-83742-7
@@ -4226,7 +4226,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable the GNOME3 Login User List
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-86195-5
@@ -4306,7 +4306,7 @@
 # complexity = low
 # disruption = medium
 - name: Set the GNOME3 Login Warning Banner Text
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     login_banner_text: ^(Authorized[\s\n]+uses[\s\n]+only\.[\s\n]+All[\s\n]+activity[\s\n]+may[\s\n]+be[\s\n]+monitored[\s\n]+and[\s\n]+reported\.|^(?!.*(\\|fedora|rhel|sle|ubuntu)).*)$
@@ -4408,7 +4408,7 @@
 # complexity = low
 # disruption = medium
 - name: Set GNOME3 Screensaver Inactivity Timeout
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     inactivity_timeout_value: '900'
@@ -4483,7 +4483,7 @@
 # complexity = low
 # disruption = medium
 - name: Set GNOME3 Screensaver Lock Delay After Activation Period
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_screensaver_lock_delay: '5'
@@ -4557,7 +4557,7 @@
 # complexity = low
 # disruption = medium
 - name: Ensure Users Cannot Change GNOME3 Screensaver Settings
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80780-0
@@ -4625,7 +4625,7 @@
 # complexity = low
 # disruption = medium
 - name: Ensure Users Cannot Change GNOME3 Session Idle Settings
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80781-8
@@ -4695,7 +4695,7 @@
 # complexity = low
 # disruption = low
 - name: Disable Host-Based Authentication
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80786-7
@@ -4780,7 +4780,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure the Group Used by pam_wheel.so Module Exists on System and is Empty
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_pam_wheel_group_for_su: sugroup
@@ -4845,7 +4845,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure that /etc/at.deny does not exist
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-86945-3
@@ -4897,7 +4897,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure that /etc/cron.allow exists
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-86184-9
@@ -4950,7 +4950,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure that /etc/cron.deny does not exist
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-86849-7
@@ -5002,7 +5002,7 @@
 # complexity = low
 # disruption = low
 - name: Verify Permissions on cron.d
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-82277-5
@@ -5067,7 +5067,7 @@
 # complexity = low
 # disruption = low
 - name: Verify Permissions on cron.daily
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-82240-3
@@ -5132,7 +5132,7 @@
 # complexity = low
 # disruption = low
 - name: Verify Permissions on cron.hourly
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-82230-4
@@ -5197,7 +5197,7 @@
 # complexity = low
 # disruption = low
 - name: Verify Permissions on cron.monthly
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-82263-5
@@ -5262,7 +5262,7 @@
 # complexity = low
 # disruption = low
 - name: Verify Permissions on crontab
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-82206-4
@@ -5324,7 +5324,7 @@
 # complexity = low
 # disruption = low
 - name: Verify Permissions on cron.weekly
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-82253-6
@@ -5389,7 +5389,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure All User Initialization Files Have Mode 0740 Or Less Permissive
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_user_initialization_files_regex: ^\.[\w\- ]+$
@@ -5459,7 +5459,7 @@
 # strategy = configure
 # disruption = low
 - name: Configure Firewalld to Restrict Loopback Traffic
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-87272-1
@@ -5557,7 +5557,7 @@
 # strategy = configure
 # disruption = low
 - name: Configure Firewalld to Trust Loopback Traffic
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-87278-8
@@ -5648,7 +5648,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable XDMCP in GDM
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-86007-2
@@ -5707,7 +5707,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure journald is configured to compress large log files
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-85930-6
@@ -5801,7 +5801,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure journald is configured to send logs to rsyslog
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-85995-9
@@ -5895,7 +5895,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure journald is configured to write log files to persistent disk
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-86045-2
@@ -5989,7 +5989,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Mounting of cramfs
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-81031-7
@@ -6059,7 +6059,7 @@
 # complexity = low
 # disruption = high
 - name: Add nodev Option to /dev/shm
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80837-8
@@ -6166,7 +6166,7 @@
 # complexity = low
 # disruption = high
 - name: Add noexec Option to /dev/shm
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80838-6
@@ -6273,7 +6273,7 @@
 # complexity = low
 # disruption = high
 - name: Add nosuid Option to /dev/shm
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80839-4
@@ -6380,7 +6380,7 @@
 # complexity = low
 # disruption = medium
 - name: Prevent Login to Accounts With Empty Password
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80841-0
@@ -6500,7 +6500,7 @@
 # complexity = low
 # disruption = low
 - name: Install AIDE
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80844-4
@@ -6556,7 +6556,7 @@
 # complexity = low
 # disruption = low
 - name: Uninstall avahi Server Package
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-86512-1
@@ -6609,7 +6609,7 @@
 # complexity = low
 # disruption = low
 - name: Uninstall CUPS Package
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-86299-5
@@ -6662,7 +6662,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure rsyslog Default File Permissions Configured
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-88321-5
@@ -6759,7 +6759,7 @@
 # complexity = low
 # disruption = low
 - name: Disable Bluetooth Service
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-87231-7
@@ -6847,7 +6847,7 @@
 # complexity = low
 # disruption = low
 - name: Disable Network File System (nfs)
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-82762-6
@@ -6931,7 +6931,7 @@
 # complexity = low
 # disruption = low
 - name: Verify nftables Service is Disabled
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-88428-8
@@ -7017,7 +7017,7 @@
 # complexity = low
 # disruption = low
 - name: Disable rpcbind Service
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-82858-2
@@ -7099,7 +7099,7 @@
 # complexity = low
 # disruption = low
 - name: Disable SSH Access via Empty Passwords
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80896-4
@@ -7186,7 +7186,7 @@
 # complexity = low
 # disruption = low
 - name: Disable SSH Support for .rhosts Files
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80899-8
@@ -7270,7 +7270,7 @@
 # complexity = low
 # disruption = low
 - name: Disable SSH Root Login
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80901-2
@@ -7360,7 +7360,7 @@
 # complexity = low
 # disruption = low
 - name: Do Not Allow SSH Environment Options
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80903-8
@@ -7446,7 +7446,7 @@
 # complexity = low
 # disruption = low
 - name: Enable SSH Warning Banner
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-87978-3
@@ -7529,7 +7529,7 @@
 # complexity = low
 # disruption = low
 - name: Set SSH Client Alive Count Max
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_sshd_set_keepalive: '1'
@@ -7617,7 +7617,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure SSH LoginGraceTime is configured
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_sshd_set_login_grace_time: '60'
@@ -7696,7 +7696,7 @@
 # complexity = low
 # disruption = low
 - name: Set SSH Daemon LogLevel to VERBOSE
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-82420-1
@@ -7778,7 +7778,7 @@
 # complexity = low
 # disruption = low
 - name: Set SSH authentication attempt limit
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sshd_max_auth_tries_value: '4'
@@ -7857,7 +7857,7 @@
 # complexity = low
 # disruption = low
 - name: Set SSH MaxSessions limit
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_sshd_max_sessions: '10'
@@ -7936,7 +7936,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure SSH MaxStartups is configured
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_sshd_set_maxstartups: 10:30:60
@@ -8015,7 +8015,7 @@
 # complexity = low
 # disruption = low
 - name: Use Only FIPS 140-2 Validated Ciphers
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sshd_approved_ciphers: -3des-cbc,aes128-cbc,aes192-cbc,aes256-cbc,rijndael-cbc@lysator.liu.se
@@ -8106,7 +8106,7 @@
 # complexity = low
 # disruption = low
 - name: Use Only Strong Key Exchange algorithms
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sshd_strong_kex: -diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1
@@ -8186,7 +8186,7 @@
 # complexity = low
 # disruption = low
 - name: Use Only Strong MACs
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sshd_strong_macs: -hmac-md5,hmac-md5-96,hmac-ripemd160,hmac-sha1-96,umac-64@openssh.com,hmac-md5-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,umac-64-etm@openssh.com
@@ -8264,7 +8264,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure Only Users Logged In To Real tty Can Execute Sudo - sudo use_pty
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-83798-9
@@ -8323,7 +8323,7 @@
 # complexity = low
 # disruption = low
 - name: Ensure Sudo Logfile Exists - sudo logfile
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_sudo_logfile: /var/log/sudo.log
@@ -8394,7 +8394,7 @@
 # complexity = low
 # disruption = low
 - name: Require Re-Authentication When Using the sudo Command
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_sudo_timestamp_timeout: '5'
@@ -8491,7 +8491,7 @@
 # complexity = low
 # disruption = medium
 - name: Enable Randomized Layout of Virtual Address Space
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80916-0
@@ -8576,7 +8576,7 @@
 # complexity = low
 # disruption = medium
 - name: Restrict usage of ptrace to descendant processes
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80953-3
@@ -8656,7 +8656,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Accepting ICMP Redirects for All IPv4 Interfaces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv4_conf_all_accept_redirects_value: '0'
@@ -8742,7 +8742,7 @@
 # complexity = low
 # disruption = medium
 - name: Enable Kernel Parameter to Log Martian Packets on all IPv4 Interfaces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv4_conf_all_log_martians_value: '1'
@@ -8825,7 +8825,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Kernel Parameter for Accepting Secure ICMP Redirects on all IPv4 Interfaces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv4_conf_all_secure_redirects_value: '0'
@@ -8911,7 +8911,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Kernel Parameter for Sending ICMP Redirects on all IPv4 Interfaces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80918-6
@@ -8998,7 +8998,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Kernel Parameter for Accepting ICMP Redirects by Default on IPv4 Interfaces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv4_conf_default_accept_redirects_value: '0'
@@ -9086,7 +9086,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Kernel Parameter for Accepting Source-Routed Packets on IPv4 Interfaces by Default
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv4_conf_default_accept_source_route_value: '0'
@@ -9172,7 +9172,7 @@
 # complexity = low
 # disruption = medium
 - name: Enable Kernel Paremeter to Log Martian Packets on all IPv4 Interfaces by Default
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv4_conf_default_log_martians_value: '1'
@@ -9255,7 +9255,7 @@
 # complexity = low
 # disruption = medium
 - name: Enable Kernel Parameter to Use Reverse Path Filtering on all IPv4 Interfaces by Default
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv4_conf_default_rp_filter_value: '1'
@@ -9339,7 +9339,7 @@
 # complexity = low
 # disruption = medium
 - name: Configure Kernel Parameter for Accepting Secure Redirects By Default
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv4_conf_default_secure_redirects_value: '0'
@@ -9423,7 +9423,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Kernel Parameter for Sending ICMP Redirects on all IPv4 Interfaces by Default
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-80921-0
@@ -9510,7 +9510,7 @@
 # complexity = low
 # disruption = medium
 - name: Enable Kernel Parameter to Ignore ICMP Broadcast Echo Requests on IPv4 Interfaces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv4_icmp_echo_ignore_broadcasts_value: '1'
@@ -9597,7 +9597,7 @@
 # complexity = low
 # disruption = medium
 - name: Enable Kernel Parameter to Ignore Bogus ICMP Error Responses on IPv4 Interfaces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv4_icmp_ignore_bogus_error_responses_value: '1'
@@ -9682,7 +9682,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Kernel Parameter for IP Forwarding on IPv4 Interfaces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   tags:
     - CCE-81024-2
@@ -9769,7 +9769,7 @@
 # complexity = low
 # disruption = medium
 - name: Enable Kernel Parameter to Use TCP Syncookies on Network Interfaces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv4_tcp_syncookies_value: '1'
@@ -9858,7 +9858,7 @@
 # complexity = low
 # disruption = medium
 - name: Configure Accepting Router Advertisements on All IPv6 Interfaces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv6_conf_all_accept_ra_value: '0'
@@ -9942,7 +9942,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Accepting ICMP Redirects for All IPv6 Interfaces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv6_conf_all_accept_redirects_value: '0'
@@ -10028,7 +10028,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Kernel Parameter for Accepting Source-Routed Packets on all IPv6 Interfaces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv6_conf_all_accept_source_route_value: '0'
@@ -10112,7 +10112,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Kernel Parameter for IPv6 Forwarding
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv6_conf_all_forwarding_value: '0'
@@ -10197,7 +10197,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Accepting Router Advertisements on all IPv6 Interfaces by Default
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv6_conf_default_accept_ra_value: '0'
@@ -10281,7 +10281,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Kernel Parameter for Accepting ICMP Redirects by Default on IPv6 Interfaces
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv6_conf_default_accept_redirects_value: '0'
@@ -10365,7 +10365,7 @@
 # complexity = low
 # disruption = medium
 - name: Disable Kernel Parameter for Accepting Source-Routed Packets on IPv6 Interfaces by Default
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     sysctl_net_ipv6_conf_default_accept_source_route_value: '0'
@@ -10453,7 +10453,7 @@
 # complexity = low
 # disruption = low
 - name: Enforce Usage of pam_wheel with Group Parameter for su Authentication
-  hosts: 'vian.local'
+  hosts: all
   become: true
   vars:
     var_pam_wheel_group_for_su: sugroup
